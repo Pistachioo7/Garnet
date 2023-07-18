@@ -1,4 +1,11 @@
-a = sint(2, 4)
-b = sint(0, 1)
-c = a * b
+program.use_split(3)
+
+a = sint(2,2)
+
+b = sint(1, 2)
+
+change_machine_domain(128)
+
+c = a > b
+
 print_ln("c = %s", c.reveal())

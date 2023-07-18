@@ -1433,7 +1433,9 @@ template<class sint, class sgf2n>
 inline void Instruction::execute_big_domain_instructions(Processor<sint, sgf2n>& Proc) const
 {
   auto& Procp = *Proc.Procp_2;
+  auto& instruction = *this;
   switch (opcode) {
+
     case LDMINT:
       cout << "LDMINT" << endl;
       throw not_implemented();
