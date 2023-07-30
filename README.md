@@ -204,7 +204,7 @@ pip install pandas
 
 在准备好csv格式的数据集后，运行python Scripts/data_prepare_for_xgboost [数据集名] 从而生成符合框架的数据格式，生成的文件为Player-Data/Input-P0-0。运行该脚本后，控制台会输出训练集所包含的训练样本数，特征数，测试集所包含的样本数，特征数。例如:
 ```
-python ./Scripts/data_prepare_for_decision_tree.py IRIS
+python ./Scripts/data_prepare_for_xgboost.py IRIS
 
 以下为控制台输出
 file: ./Data/IRIS_train.csv
@@ -387,6 +387,7 @@ make -j 8 fss-ring-party.x
 
 最后，生成Offline需要的内容
 ```
+make -j 8 Fake-Offline.x
 ./Fake-Offline.x 3 -e 15,31,63
 ```
 
@@ -525,7 +526,7 @@ Global data sent = 3.42998 MB (all parties)
 模型训练开销Profiling是指给定一个mpc语言描述的机器学习模型训练过程，在编译阶段通过对指令进行分析量化每个算子（全连接层、激活函数层、卷积层等）的通信量与通信轮次，为MPC-Friendly模型的设计提供重要参考。目前Garnet中模型训练开销Profiling支持四种协议，包括SecureML、ABY、ABY3、BGW。
 
 ### 环境配置
-在主目录（/Garnet）下提供了requirements.txt和fine-tuning.yaml用于配置环境，可以在主目录下执行以下命令完成环境配置
+在主目录（/Garnet）下提供了requirements.txt用于配置环境，可以在主目录下执行以下命令完成环境配置.
 
 ```
 pip install -r ./requirements.txt 
@@ -554,7 +555,7 @@ stop_profiling() # stopping model trainging cost profiling
 ```
 随后，在Garnet文件夹下运行如下命令，在包含100条100维数据的数据集上训练一个逻辑回归模型并对其训练开销进行Progfiling，并指定底层协议为ABY3。
 ```
-python compile.py -R 64 split 3 --profiling -Q ABY3 logreg 100 100
+python compile.py -R 64 -Z 3 --profiling -Q ABY3 logreg 100 100
 ```
 输出为
 ```
