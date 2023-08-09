@@ -69,4 +69,4 @@ def process(file_path):
 
 
 if __name__ == '__main__':
-    process("./Data/特药数据样例.xlsx")
+    process("./Data/drug.xlsx")
