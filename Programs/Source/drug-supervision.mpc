@@ -14,7 +14,7 @@ for x in table:
     x.input_from(1) # 从第1方中读入所有的领药人数据
 
 print_ln("检测结果：")
-print_ln("处方单号, 患者证件号, 日期, 超量倍数")
+print_ln("处方单号  患者证件号  日期  超量倍数")
 
 for i in range(row):
     entry = table[i]
