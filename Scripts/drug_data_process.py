@@ -61,6 +61,7 @@ def process(file_path):
     data['倍数'] = data['标准开药量（mg）'] / (14 * data['标准用药量（mg）'])
     data['秒时间'] = data['开具时间'].apply(convert_to_seconds)
     data['处方单号'] = data['处方单号'].apply(delete_letter)
+    data['患者证件号'] = data['患者证件号'].apply(delete_letter)  # 删除字母，防止身份证号中出现X
     data['累积倍数'] = 0
     ids = data['患者证件号'].unique()
     result = pd.DataFrame(columns=data.columns)
