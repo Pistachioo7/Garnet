@@ -31,7 +31,8 @@ class Compiler:
             default=defaults.merge_opens,
             help="don't attempt to merge open instructions",
         )
-        parser.add_option("-o", "--output", dest="outfile", help="specify output file")
+        parser.add_option("-o", "--output", dest="outfile",
+                          help="specify output file")
         parser.add_option(
             "-a",
             "--asm-output",
@@ -228,7 +229,7 @@ class Compiler:
         self.prog = Program(self.args, self.options, name=name)
 
     def build_vars(self):
-        from . import comparison, floatingpoint, instructions, library, types
+        from . import comparison, floatingpoint, instructions, instructions_base, library, types
 
         # add all instructions to the program VARS dictionary
         instr_classes = [
@@ -245,9 +246,10 @@ class Compiler:
         instr_classes += [
             t[1]
             for t in inspect.getmembers(library, inspect.isfunction)
-            if t[1].__module__ == library.__name__
+            # if t[1].__module__ == library.__name__
         ]
-
+        # for t in inspect.getmembers(library, inspect.isfunction):
+        #     print(t)
         for op in instr_classes:
             self.VARS[op.__name__] = op
 
@@ -266,7 +268,8 @@ class Compiler:
 
         self.VARS["program"] = self.prog
         if self.options.binary:
-            self.VARS["sint"] = GC_types.sbitintvec.get_type(int(self.options.binary))
+            self.VARS["sint"] = GC_types.sbitintvec.get_type(
+                int(self.options.binary))
             self.VARS["sfix"] = GC_types.sbitfixvec
             for i in [
                 "cint",
@@ -282,6 +285,7 @@ class Compiler:
                 "squant",
             ]:
                 del self.VARS[i]
+        # print(self.VARS)
 
     def prep_compile(self, name=None):
         self.parse_args()
@@ -314,13 +318,15 @@ class Compiler:
                         output.append(
                             "%s@for_range_opt(%s)\n" % (m.group(1), m.group(3))
                         )
-                        output.append("%sdef _(%s):\n" % (m.group(1), m.group(2)))
+                        output.append("%sdef _(%s):\n" %
+                                      (m.group(1), m.group(2)))
                         changed = True
                         continue
                     m = re.match(r"(\s*)if(\W.*):", line)
                     if m:
                         if_stack.append((m.group(1), len(output)))
-                        output.append("%s@if_(%s)\n" % (m.group(1), m.group(2)))
+                        output.append("%s@if_(%s)\n" %
+                                      (m.group(1), m.group(2)))
                         output.append("%sdef _():\n" % (m.group(1)))
                         changed = True
                         continue
@@ -384,13 +390,15 @@ class Compiler:
             )
         self.prep_compile(self.compile_name)
         print(
-            "Compiling: {} from {}".format(self.compile_name, self.compile_func.__name__)
+            "Compiling: {} from {}".format(
+                self.compile_name, self.compile_func.__name__)
         )
         self.compile_function()
         self.finalize_compile()
 
     def finalize_compile(self):
         self.prog.finalize()
+        print(self.prog.tapes[0].basicblocks[0].instructions)
 
         if self.prog.req_num:
             print("Program requires at most:")

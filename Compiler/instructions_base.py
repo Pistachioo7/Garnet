@@ -14,220 +14,222 @@ from Compiler import program
 
 
 ###
-### Opcode constants
+# Opcode constants
 ###
-### Whenever these are changed the corresponding enums in Processor/instruction.h
-### MUST also be changed. (+ the documentation)
+# Whenever these are changed the corresponding enums in Processor/instruction.h
+# MUST also be changed. (+ the documentation)
 ###
 opcodes = dict(
     # Change domain
-    CSD = 0xf8,
-    CMD = 0xf9,
+    CSD=0xf8,
+    CMD=0xf9,
     # Emulation
-    CISC = 0,
+    CISC=0,
     # Load/store
-    LDI = 0x1,
-    LDSI = 0x2,
-    LDMC = 0x3,
-    LDMS = 0x4,
-    STMC = 0x5,
-    STMS = 0x6,
-    LDMCI = 0x7,
-    LDMSI = 0x8,
-    STMCI = 0x9,
-    STMSI = 0xA,
-    MOVC = 0xB,
-    MOVS = 0xC,
-    PROTECTMEMS = 0xD,
-    PROTECTMEMC = 0xE,
-    PROTECTMEMINT = 0xF,
-    LDMINT = 0xCA,
-    STMINT = 0xCB,
-    LDMINTI = 0xCC,
-    STMINTI = 0xCD,
-    PUSHINT = 0xCE,
-    POPINT = 0xCF,
-    MOVINT = 0xD0,
+    LDI=0x1,
+    LDSI=0x2,
+    LDMC=0x3,
+    LDMS=0x4,
+    STMC=0x5,
+    STMS=0x6,
+    LDMCI=0x7,
+    LDMSI=0x8,
+    STMCI=0x9,
+    STMSI=0xA,
+    MOVC=0xB,
+    MOVS=0xC,
+    PROTECTMEMS=0xD,
+    PROTECTMEMC=0xE,
+    PROTECTMEMINT=0xF,
+    LDMINT=0xCA,
+    STMINT=0xCB,
+    LDMINTI=0xCC,
+    STMINTI=0xCD,
+    PUSHINT=0xCE,
+    POPINT=0xCF,
+    MOVINT=0xD0,
     # Machine
-    LDTN = 0x10,
-    LDARG = 0x11,
-    REQBL = 0x12,
-    STARG = 0x13,
-    TIME = 0x14,
-    START = 0x15,
-    STOP = 0x16,
-    USE = 0x17,
-    USE_INP = 0x18,
-    RUN_TAPE = 0x19,
-    JOIN_TAPE = 0x1A,
-    CRASH = 0x1B,
-    USE_PREP = 0x1C,
-    STARTGRIND = 0x1D,
-    STOPGRIND = 0x1E,
-    NPLAYERS = 0xE2,
-    THRESHOLD = 0xE3,
-    PLAYERID = 0xE4,
-    USE_EDABIT = 0xE5,
-    USE_MATMUL = 0x1F,
+    LDTN=0x10,
+    LDARG=0x11,
+    REQBL=0x12,
+    STARG=0x13,
+    TIME=0x14,
+    START=0x15,
+    STOP=0x16,
+    USE=0x17,
+    USE_INP=0x18,
+    RUN_TAPE=0x19,
+    JOIN_TAPE=0x1A,
+    CRASH=0x1B,
+    USE_PREP=0x1C,
+    STARTGRIND=0x1D,
+    STOPGRIND=0x1E,
+    NPLAYERS=0xE2,
+    THRESHOLD=0xE3,
+    PLAYERID=0xE4,
+    USE_EDABIT=0xE5,
+    USE_MATMUL=0x1F,
     # Addition
-    ADDC = 0x20,
-    ADDS = 0x21,
-    ADDM = 0x22,
-    ADDCI = 0x23,
-    ADDSI = 0x24,
-    SUBC = 0x25,
-    SUBS = 0x26,
-    SUBML = 0x27,
-    SUBMR = 0x28,
-    SUBCI = 0x29,
-    SUBSI = 0x2A,
-    SUBCFI = 0x2B,
-    SUBSFI = 0x2C,
-    PREFIXSUMS = 0x2D,
+    ADDC=0x20,
+    ADDS=0x21,
+    ADDM=0x22,
+    ADDCI=0x23,
+    ADDSI=0x24,
+    SUBC=0x25,
+    SUBS=0x26,
+    SUBML=0x27,
+    SUBMR=0x28,
+    SUBCI=0x29,
+    SUBSI=0x2A,
+    SUBCFI=0x2B,
+    SUBSFI=0x2C,
+    PREFIXSUMS=0x2D,
     # Multiplication/division
-    MULC = 0x30,
-    MULM = 0x31,
-    MULCI = 0x32,
-    MULSI = 0x33,
-    DIVC = 0x34,
-    DIVCI = 0x35,
-    MODC = 0x36,
-    MODCI = 0x37,
-    LEGENDREC = 0x38,
-    DIGESTC = 0x39,
-    INV2M = 0x3a,
-    FLOORDIVC = 0x3b,
-    GMULBITC = 0x136,
-    GMULBITM = 0x137,
+    MULC=0x30,
+    MULM=0x31,
+    MULCI=0x32,
+    MULSI=0x33,
+    DIVC=0x34,
+    DIVCI=0x35,
+    MODC=0x36,
+    MODCI=0x37,
+    LEGENDREC=0x38,
+    DIGESTC=0x39,
+    INV2M=0x3a,
+    FLOORDIVC=0x3b,
+    GMULBITC=0x136,
+    GMULBITM=0x137,
     # Open
-    OPEN = 0xA5,
-    MULS = 0xA6,
-    MULRS = 0xA7,
-    DOTPRODS = 0xA8,
-    TRUNC_PR = 0xA9,
-    MATMULS = 0xAA,
-    MATMULSM = 0xAB,
-    CONV2DS = 0xAC,
-    CHECK = 0xAF,
-    PRIVATEOUTPUT = 0xAD,
+    OPEN=0xA5,
+    MULS=0xA6,
+    MULRS=0xA7,
+    DOTPRODS=0xA8,
+    TRUNC_PR=0xA9,
+    MATMULS=0xAA,
+    MATMULSM=0xAB,
+    CONV2DS=0xAC,
+    CHECK=0xAF,
+    PRIVATEOUTPUT=0xAD,
     # Shuffling
-    SECSHUFFLE = 0xFA,
-    GENSECSHUFFLE = 0xFB,
-    APPLYSHUFFLE = 0xFC,
-    DELSHUFFLE = 0xFD,
-    INVPERM = 0xFE,
+    SECSHUFFLE=0xFA,
+    GENSECSHUFFLE=0xFB,
+    APPLYSHUFFLE=0xFC,
+    DELSHUFFLE=0xFD,
+    INVPERM=0xFE,
     # Data access
-    TRIPLE = 0x50,
-    BIT = 0x51,
-    SQUARE = 0x52,
-    INV = 0x53,
-    GBITTRIPLE = 0x154,
-    GBITGF2NTRIPLE = 0x155,
-    INPUTMASK = 0x56,
-    INPUTMASKREG = 0x5C,
-    PREP = 0x57,
-    DABIT = 0x58,
-    EDABIT = 0x59,
-    SEDABIT = 0x5A,
-    RANDOMS = 0x5B,
-    RANDOMFULLS = 0x5D,
+    TRIPLE=0x50,
+    BIT=0x51,
+    SQUARE=0x52,
+    INV=0x53,
+    GBITTRIPLE=0x154,
+    GBITGF2NTRIPLE=0x155,
+    INPUTMASK=0x56,
+    INPUTMASKREG=0x5C,
+    PREP=0x57,
+    DABIT=0x58,
+    EDABIT=0x59,
+    SEDABIT=0x5A,
+    RANDOMS=0x5B,
+    RANDOMFULLS=0x5D,
     # Input
-    INPUT = 0x60,
-    INPUTFIX = 0xF0,
-    INPUTFLOAT = 0xF1,
-    INPUTMIXED = 0xF2,
-    INPUTMIXEDREG = 0xF3,
-    RAWINPUT = 0xF4,
-    INPUTPERSONAL = 0xF5,
-    SENDPERSONAL = 0xF6,
-    STARTINPUT = 0x61,
-    STOPINPUT = 0x62,  
-    READSOCKETC = 0x63,
-    READSOCKETS = 0x64,
-    WRITESOCKETC = 0x65,
-    WRITESOCKETS = 0x66,
-    READSOCKETINT = 0x69,
-    WRITESOCKETINT = 0x6a,
-    WRITESOCKETSHARE = 0x6b,
-    LISTEN = 0x6c,
-    ACCEPTCLIENTCONNECTION = 0x6d,
-    CLOSECLIENTCONNECTION = 0x6e,
-    READCLIENTPUBLICKEY = 0x6f,
+    INPUT=0x60,
+    INPUTFIX=0xF0,
+    INPUTFLOAT=0xF1,
+    INPUTMIXED=0xF2,
+    INPUTMIXEDREG=0xF3,
+    RAWINPUT=0xF4,
+    INPUTPERSONAL=0xF5,
+    SENDPERSONAL=0xF6,
+    STARTINPUT=0x61,
+    STOPINPUT=0x62,
+    READSOCKETC=0x63,
+    READSOCKETS=0x64,
+    WRITESOCKETC=0x65,
+    WRITESOCKETS=0x66,
+    READSOCKETINT=0x69,
+    WRITESOCKETINT=0x6a,
+    WRITESOCKETSHARE=0x6b,
+    LISTEN=0x6c,
+    ACCEPTCLIENTCONNECTION=0x6d,
+    CLOSECLIENTCONNECTION=0x6e,
+    READCLIENTPUBLICKEY=0x6f,
     # Bitwise logic
-    ANDC = 0x70,
-    XORC = 0x71,
-    ORC = 0x72,
-    ANDCI = 0x73,
-    XORCI = 0x74,
-    ORCI = 0x75,
-    NOTC = 0x76,
+    ANDC=0x70,
+    XORC=0x71,
+    ORC=0x72,
+    ANDCI=0x73,
+    XORCI=0x74,
+    ORCI=0x75,
+    NOTC=0x76,
     # Bitwise shifts
-    SHLC = 0x80,
-    SHRC = 0x81,
-    SHLCI = 0x82,
-    SHRCI = 0x83,
-    SHRSI = 0x84,
+    SHLC=0x80,
+    SHRC=0x81,
+    SHLCI=0x82,
+    SHRCI=0x83,
+    SHRSI=0x84,
     # Branching and comparison
-    JMP = 0x90,
-    JMPNZ = 0x91,
-    JMPEQZ = 0x92,
-    EQZC = 0x93,
-    LTZC = 0x94,
-    LTC = 0x95,
-    GTC = 0x96,
-    EQC = 0x97,
-    JMPI = 0x98,
+    JMP=0x90,
+    JMPNZ=0x91,
+    JMPEQZ=0x92,
+    EQZC=0x93,
+    LTZC=0x94,
+    LTC=0x95,
+    GTC=0x96,
+    EQC=0x97,
+    JMPI=0x98,
     # Integers
-    BITDECINT = 0x99,
-    LDINT = 0x9A,
-    ADDINT = 0x9B,
-    SUBINT = 0x9C,
-    MULINT = 0x9D,
-    DIVINT = 0x9E,
-    PRINTINT = 0x9F,
-    INCINT = 0xD1,
-    SHUFFLE = 0xD2,
+    BITDECINT=0x99,
+    LDINT=0x9A,
+    ADDINT=0x9B,
+    SUBINT=0x9C,
+    MULINT=0x9D,
+    DIVINT=0x9E,
+    PRINTINT=0x9F,
+    INCINT=0xD1,
+    SHUFFLE=0xD2,
     # Conversion
-    CONVINT = 0xC0,
-    CONVMODP = 0xC1,
-    GCONVGF2N = 0x1C1,
+    CONVINT=0xC0,
+    CONVMODP=0xC1,
+    GCONVGF2N=0x1C1,
     # IO
-    PRINTMEM = 0xB0,
-    PRINTREG = 0XB1,
-    RAND = 0xB2,
-    PRINTREGPLAIN = 0xB3,
-    PRINTCHR = 0xB4,
-    PRINTSTR = 0xB5,
-    PUBINPUT = 0xB6,
-    RAWOUTPUT = 0xB7,
-    STARTPRIVATEOUTPUT = 0xB8,
-    STOPPRIVATEOUTPUT = 0xB9,
-    PRINTCHRINT = 0xBA,
-    PRINTSTRINT = 0xBB,
-    PRINTFLOATPLAIN = 0xBC,
-    WRITEFILESHARE = 0xBD,     
-    READFILESHARE = 0xBE,
-    CONDPRINTSTR = 0xBF,
-    PRINTFLOATPREC = 0xE0,
-    CONDPRINTPLAIN = 0xE1,
-    INTOUTPUT = 0xE6,
-    FLOATOUTPUT = 0xE7,
-    GBITDEC = 0x18A,
-    GBITCOM = 0x18B,
+    PRINTMEM=0xB0,
+    PRINTREG=0XB1,
+    RAND=0xB2,
+    PRINTREGPLAIN=0xB3,
+    PRINTCHR=0xB4,
+    PRINTSTR=0xB5,
+    PUBINPUT=0xB6,
+    PUBOUTPUT=0xE8,
+    RAWOUTPUT=0xB7,
+    STARTPRIVATEOUTPUT=0xB8,
+    STOPPRIVATEOUTPUT=0xB9,
+    PRINTCHRINT=0xBA,
+    PRINTSTRINT=0xBB,
+    PRINTFLOATPLAIN=0xBC,
+    WRITEFILESHARE=0xBD,
+    READFILESHARE=0xBE,
+    CONDPRINTSTR=0xBF,
+    PRINTFLOATPREC=0xE0,
+    CONDPRINTPLAIN=0xE1,
+    INTOUTPUT=0xE6,
+    FLOATOUTPUT=0xE7,
+    GBITDEC=0x18A,
+    GBITCOM=0x18B,
     # Secure socket
-    INITSECURESOCKET = 0x1BA,
-    RESPSECURESOCKET = 0x1BB
+    INITSECURESOCKET=0x1BA,
+    RESPSECURESOCKET=0x1BB,
 )
 
 
 def int_to_bytes(x):
     """ 32 bit int to big-endian 4 byte conversion. """
     assert(x < 2**32 and x >= -2**32)
-    return [(x >> 8*i) % 256 for i in (3,2,1,0)]
+    return [(x >> 8*i) % 256 for i in (3, 2, 1, 0)]
 
 
 global_vector_size_stack = []
 global_instruction_type_stack = ['modp']
+
 
 def set_global_vector_size(size):
     stack = global_vector_size_stack
@@ -235,19 +237,24 @@ def set_global_vector_size(size):
         return
     stack.append(size)
 
+
 def set_global_instruction_type(t):
     if t == 'modp' or t == 'gf2n':
         global_instruction_type_stack.append(t)
     else:
-        raise CompilerError('Invalid type %s for setting global instruction type')
+        raise CompilerError(
+            'Invalid type %s for setting global instruction type')
+
 
 def reset_global_vector_size():
     stack = global_vector_size_stack
     if global_vector_size_stack:
         stack.pop()
 
+
 def reset_global_instruction_type():
     global_instruction_type_stack.pop()
+
 
 def get_global_vector_size():
     stack = global_vector_size_stack
@@ -255,6 +262,7 @@ def get_global_vector_size():
         return stack[-1]
     else:
         return 1
+
 
 def get_global_instruction_type():
     return global_instruction_type_stack[-1]
@@ -268,28 +276,35 @@ def vectorize(instruction, global_dict=None):
 
     class Vectorized_Instruction(instruction):
         __slots__ = ['size']
+
         def __init__(self, size, *args, **kwargs):
             self.size = size
             super(Vectorized_Instruction, self).__init__(*args, **kwargs)
             if not kwargs.get('copying', False):
-                for arg,f in zip(self.args, self.arg_format):
+                for arg, f in zip(self.args, self.arg_format):
                     if issubclass(ArgFormats[f], RegisterArgFormat):
                         arg.set_size(size)
+
         def get_code(self):
             return instruction.get_code(self, self.get_size())
+
         def get_pre_arg(self):
             try:
                 return "%d, " % self.size
             except:
                 return "{undef}, "
+
         def is_vec(self):
             return True
+
         def get_size(self):
             return self.size
+
         def expand(self):
             set_global_vector_size(self.size)
             super(Vectorized_Instruction, self).expand()
             reset_global_vector_size()
+
         def copy(self, size, subs):
             return type(self)(size, *self.get_new_args(size, subs),
                               copying=True)
@@ -309,7 +324,7 @@ def vectorize(instruction, global_dict=None):
             return Vectorized_Instruction(size, *args, **kwargs)
     maybe_vectorized_instruction.vec_ins = Vectorized_Instruction
     maybe_vectorized_instruction.std_ins = instruction
-    
+
     vectorized_name = 'v' + instruction.__name__
     Vectorized_Instruction.__name__ = vectorized_name
     global_dict[vectorized_name] = Vectorized_Instruction
@@ -359,7 +374,8 @@ def gf2n(instruction):
                 reformat(__f)
 
     class GF2N_Instruction(instruction_cls):
-        __doc__ = instruction_cls.__doc__.replace('c_', 'c^g_').replace('s_', 's^g_')
+        __doc__ = instruction_cls.__doc__.replace(
+            'c_', 'c^g_').replace('s_', 's^g_')
         __slots__ = []
         field_type = 'gf2n'
         if isinstance(instruction_cls.code, int):
@@ -398,7 +414,7 @@ def gf2n(instruction):
                 return GF2N_Instruction(*args, **kwargs)
         else:
             return instruction(*args, **kwargs)
-    
+
     # If instruction is vectorized, new GF2N instruction must also be
     if vectorized:
         global_dict[GF2N_Instruction.__name__] = vec_GF2N
@@ -411,10 +427,12 @@ def gf2n(instruction):
     global_dict[instruction.__name__ + '_class'] = instruction_cls
     maybe_gf2n_instruction.arg_format = instruction.arg_format
     return maybe_gf2n_instruction
-    #return instruction
+    # return instruction
+
 
 class Mergeable:
     pass
+
 
 def cisc(function):
     class MergeCISC(Mergeable):
@@ -488,7 +506,7 @@ def cisc(function):
                 n_rounds = merger.longest_paths_merge()
                 filtered = filter(lambda x: x is not None, block.instructions)
                 self.instructions[self.merge_id()] = list(filtered), args, \
-                                                     n_rounds
+                    n_rounds
             template, args, self.n_rounds = self.instructions[self.merge_id()]
             subs = util.dict_by_id()
             for arg, reg in zip(args, regs):
@@ -509,6 +527,7 @@ def cisc(function):
                            not issubclass(type(self.calls[0][0][0]), type(arg)):
                             good = False
                 if good:
+                    print("Skip:", type(self), self)
                     return [self], 0
             tape = program.curr_tape
             block = tape.BasicBlock(tape, None, None)
@@ -547,20 +566,33 @@ def cisc(function):
         def get_bytes(self):
             assert len(self.kwargs) < 2
             res = LongArgFormat.encode(opcodes['CISC'])
+            print(res)
             res += int_to_bytes(sum(len(x[0]) + 2 for x in self.calls) + 1)
+            for x in self.calls:
+                print(x)
+                print(len(x[0]))
+            print(res)
             name = self.function.__name__
             String.check(name)
             res += String.encode(name)
+            print("name", String.encode(name))
+            print(res)
             for call in self.calls:
+                print(call)
                 call[1].pop('nearest', None)
                 assert not call[1]
                 res += int_to_bytes(len(call[0]) + 2)
+                print(call[0][0].size)
                 res += int_to_bytes(call[0][0].size)
+                print(res)
                 for arg in call[0]:
+                    print(arg)
                     res += self.arg_to_bytes(arg)
+                    print(res)
+            print("cisc: ", res)
             return bytearray(res)
 
-        @classmethod
+        @ classmethod
         def arg_to_bytes(self, arg):
             if arg is None:
                 return int_to_bytes(0)
@@ -583,10 +615,13 @@ def cisc(function):
             except:
                 pass
         if program.options.cisc and same_sizes:
+            print("mergecisc")
             return MergeCISC(*args, **kwargs)
         else:
+            print("no merge cisc")
             return function(*args, **kwargs)
     return wrapper
+
 
 def ret_cisc(function):
     def instruction(res, *args, **kwargs):
@@ -607,8 +642,10 @@ def ret_cisc(function):
         return res
     return wrapper
 
+
 def sfix_cisc(function):
     from Compiler.types import sfix, sint, cfix, copy_doc
+
     def instruction(res, arg, k, f, *args):
         assert k is not None
         assert f is not None
@@ -635,6 +672,7 @@ def sfix_cisc(function):
     copy_doc(wrapper, function)
     return wrapper
 
+
 class RegType(object):
     """ enum-like static class for Register types """
     ClearModp = 'c'
@@ -645,7 +683,7 @@ class RegType(object):
 
     Types = [ClearModp, SecretModp, ClearGF2N, SecretGF2N, ClearInt]
 
-    @staticmethod
+    @ staticmethod
     def create_dict(init_value_fn):
         """ Create a dictionary with all the RegTypes as keys """
         res = defaultdict(init_value_fn)
@@ -654,32 +692,34 @@ class RegType(object):
             res[t]
         return res
 
+
 class ArgFormat(object):
     is_reg = False
 
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         return NotImplemented
 
-    @classmethod
+    @ classmethod
     def encode(cls, arg):
         return NotImplemented
+
 
 class RegisterArgFormat(ArgFormat):
     is_reg = True
 
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         if not isinstance(arg, program.curr_tape.Register):
             raise ArgumentError(arg, 'Invalid register argument')
         if arg.program != program.curr_tape:
-            raise ArgumentError(arg, 'Register from other tape, trace: %s' % \
-                                    util.format_trace(arg.caller))
+            raise ArgumentError(arg, 'Register from other tape, trace: %s' %
+                                util.format_trace(arg.caller))
         if arg.reg_type != cls.reg_type:
-            raise ArgumentError(arg, "Wrong register type '%s', expected '%s'" % \
-                                    (arg.reg_type, cls.reg_type))
+            raise ArgumentError(arg, "Wrong register type '%s', expected '%s'" %
+                                (arg.reg_type, cls.reg_type))
 
-    @classmethod
+    @ classmethod
     def encode(cls, arg):
         assert arg.i >= 0
         return int_to_bytes(arg.i)
@@ -690,25 +730,31 @@ class RegisterArgFormat(ArgFormat):
     def __str__(self):
         return self.reg_type + str(self.i)
 
+
 class ClearModpAF(RegisterArgFormat):
     reg_type = RegType.ClearModp
+
 
 class SecretModpAF(RegisterArgFormat):
     reg_type = RegType.SecretModp
 
+
 class ClearGF2NAF(RegisterArgFormat):
     reg_type = RegType.ClearGF2N
+
 
 class SecretGF2NAF(RegisterArgFormat):
     reg_type = RegType.SecretGF2N
 
+
 class ClearIntAF(RegisterArgFormat):
     reg_type = RegType.ClearInt
+
 
 class IntArgFormat(ArgFormat):
     n_bits = 32
 
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         if not arg is None:
             if not isinstance(arg, int):
@@ -717,7 +763,7 @@ class IntArgFormat(ArgFormat):
                 raise ArgumentError(
                     arg, 'Immediate value outside of %d-bit range' % cls.n_bits)
 
-    @classmethod
+    @ classmethod
     def encode(cls, arg):
         return int_to_bytes(arg)
 
@@ -727,29 +773,33 @@ class IntArgFormat(ArgFormat):
     def __str__(self):
         return str(self.i)
 
+
 class LongArgFormat(IntArgFormat):
     n_bits = 64
 
-    @classmethod
+    @ classmethod
     def encode(cls, arg):
         return list(struct.pack('>Q', arg))
 
     def __init__(self, f):
         self.i = struct.unpack('>Q', f.read(8))[0]
 
+
 class ImmediateModpAF(IntArgFormat):
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         super(ImmediateModpAF, cls).check(arg)
 
+
 class ImmediateGF2NAF(IntArgFormat):
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         # bounds checking for GF(2^n)???
         super(ImmediateGF2NAF, cls).check(arg)
 
+
 class PlayerNoAF(IntArgFormat):
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         if not util.is_constant(arg):
             raise CompilerError('Player number must be known at compile time')
@@ -757,10 +807,11 @@ class PlayerNoAF(IntArgFormat):
         if arg > 256:
             raise ArgumentError(arg, 'Player number > 256')
 
+
 class String(ArgFormat):
     length = 16
 
-    @classmethod
+    @ classmethod
     def check(cls, arg):
         if not isinstance(arg, str):
             raise ArgumentError(arg, 'Argument is not string')
@@ -769,7 +820,7 @@ class String(ArgFormat):
         if '\0' in arg:
             raise ArgumentError(arg, 'String contains zero-byte')
 
-    @classmethod
+    @ classmethod
     def encode(cls, arg):
         return bytearray(arg, 'ascii') + b'\0' * (cls.length - len(arg))
 
@@ -779,6 +830,7 @@ class String(ArgFormat):
 
     def __str__(self):
         return self.str
+
 
 ArgFormats = {
     'c': ClearModpAF,
@@ -799,8 +851,10 @@ ArgFormats = {
     'str': String,
 }
 
+
 def format_str_is_reg(format_str):
     return ArgFormats[format_str].is_reg
+
 
 def format_str_is_writeable(format_str):
     return format_str_is_reg(format_str) and format_str[-1] == 'w'
@@ -826,11 +880,11 @@ class Instruction(object):
             self.caller = [frame[1:] for frame in inspect.stack()[1:]]
         else:
             self.caller = None
-        
+
         Instruction.count += 1
         if Instruction.count % 100000 == 0:
-            print("Compiled %d lines at" % self.__class__.count, time.asctime())
-
+            print("Compiled %d lines at" %
+                  self.__class__.count, time.asctime())
 
     def get_code(self, prefix=0):
         return (prefix << self.code_length) + self.code
@@ -840,42 +894,45 @@ class Instruction(object):
         # add the number of registers if instruction flagged as has var args
         if self.has_var_args():
             enc += int_to_bytes(len(self.args))
-        for arg,format in zip(self.args, self.arg_format):
+        for arg, format in zip(self.args, self.arg_format):
             enc += ArgFormats[format].encode(arg)
         return enc
-    
+
     def get_bytes(self):
         try:
             return bytearray(self.get_encoding())
         except TypeError:
-            raise CompilerError('cannot encode %s/%s' % (self, self.get_encoding()))
-    
+            raise CompilerError('cannot encode %s/%s' %
+                                (self, self.get_encoding()))
+
     def check_args(self):
         """ Check the args match up with that specified in arg_format """
         try:
             if len(self.args) != len(self.arg_format):
-                raise CompilerError('Incorrect number of arguments for instruction %s' % (self))
+                raise CompilerError(
+                    'Incorrect number of arguments for instruction %s' % (self))
         except TypeError:
             pass
-        for n,(arg,f) in enumerate(zip(self.args, self.arg_format)):
+        for n, (arg, f) in enumerate(zip(self.args, self.arg_format)):
             try:
                 ArgFormats[f].check(arg)
             except ArgumentError as e:
                 raise CompilerError('Invalid argument %d "%s" to instruction: %s'
-                    % (n, e.arg, self) + '\n' + e.msg)
+                                    % (n, e.arg, self) + '\n' + e.msg)
             except KeyError as e:
-                raise CompilerError('Unknown argument %s for instruction %s' % (f, self))
-    
+                raise CompilerError(
+                    'Unknown argument %s for instruction %s' % (f, self))
+
     def get_used(self):
         """ Return the set of registers that are read in this instruction. """
-        return (arg for arg,w in zip(self.args, self.arg_format) if \
-            format_str_is_reg(w) and not format_str_is_writeable(w))
-    
+        return (arg for arg, w in zip(self.args, self.arg_format) if
+                format_str_is_reg(w) and not format_str_is_writeable(w))
+
     def get_def(self):
         """ Return the set of registers that are written to in this instruction. """
-        return (arg for arg,w in zip(self.args, self.arg_format) if \
-            format_str_is_writeable(w))
-    
+        return (arg for arg, w in zip(self.args, self.arg_format) if
+                format_str_is_writeable(w))
+
     def get_pre_arg(self):
         return ""
 
@@ -889,7 +946,7 @@ class Instruction(object):
     def is_vec(self):
         return False
 
-    @classmethod
+    @ classmethod
     def is_gf2n(self):
         return False
 
@@ -938,13 +995,13 @@ class Instruction(object):
                     new_args.append(arg)
         return new_args
 
-    @staticmethod
+    @ staticmethod
     def get_usage(args):
         return {}
 
     # String version of instruction attempting to replicate encoded version
     def __str__(self):
-        
+
         if self.has_var_args():
             varargCount = str(len(self.args)) + ', '
         else:
@@ -954,6 +1011,7 @@ class Instruction(object):
 
     def __repr__(self):
         return self.__class__.__name__ + '(' + self.get_pre_arg() + ','.join(str(a) for a in self.args) + ')'
+
 
 class ParsedInstruction:
     reverse_opcodes = {}
@@ -970,7 +1028,8 @@ class ParsedInstruction:
                             cls.reverse_opcodes[y.code] = y
                         except AttributeError:
                             pass
-        read = lambda: struct.unpack('>I', f.read(4))[0]
+
+        def read(): return struct.unpack('>I', f.read(4))[0]
         full_code = struct.unpack('>Q', f.read(8))[0]
         code = full_code % (1 << Instruction.code_length)
         self.size = full_code >> Instruction.code_length
@@ -1015,25 +1074,28 @@ class ParsedInstruction:
     def get_usage(self):
         return self.type.get_usage(self.args)
 
+
 class VarArgsInstruction(Instruction):
     def has_var_args(self):
         return True
 
+
 class VectorInstruction(Instruction):
     __slots__ = []
-    is_vec = lambda self: True
+    def is_vec(self): return True
 
     def get_code(self):
         return super(VectorInstruction, self).get_code(len(self.args[0]))
 
+
 class DynFormatInstruction(Instruction):
     __slots__ = []
 
-    @property
+    @ property
     def arg_format(self):
         return self.dynamic_arg_format(iter(self.args))
 
-    @classmethod
+    @ classmethod
     def bases(self, args):
         i = 0
         while True:
@@ -1047,28 +1109,34 @@ class DynFormatInstruction(Instruction):
                 next(args)
 
 ###
-### Basic arithmetic
+# Basic arithmetic
 ###
+
 
 class AddBase(Instruction):
     __slots__ = []
 
+
 class SubBase(Instruction):
     __slots__ = []
+
 
 class MulBase(Instruction):
     __slots__ = []
 
 ###
-### Basic arithmetic with immediate values
+# Basic arithmetic with immediate values
 ###
+
 
 class ImmediateBase(Instruction):
     __slots__ = ['op']
 
+
 class SharedImmediate(ImmediateBase):
     __slots__ = []
     arg_format = ['sw', 's', 'i']
+
 
 class ClearImmediate(ImmediateBase):
     __slots__ = []
@@ -1076,13 +1144,15 @@ class ClearImmediate(ImmediateBase):
 
 
 ###
-### Memory access instructions
+# Memory access instructions
 ###
 
 class DirectMemoryInstruction(Instruction):
     __slots__ = []
+
     def __init__(self, *args, **kwargs):
         super(DirectMemoryInstruction, self).__init__(*args, **kwargs)
+
 
 class IndirectMemoryInstruction(Instruction):
     __slots__ = []
@@ -1090,34 +1160,40 @@ class IndirectMemoryInstruction(Instruction):
     def get_direct(self, address):
         return self.direct(self.args[0], address, add_to_prog=False)
 
+
 class ReadMemoryInstruction(Instruction):
     __slots__ = []
+
 
 class WriteMemoryInstruction(Instruction):
     __slots__ = []
 
-class DirectMemoryWriteInstruction(DirectMemoryInstruction, \
-                                       WriteMemoryInstruction):
+
+class DirectMemoryWriteInstruction(DirectMemoryInstruction,
+                                   WriteMemoryInstruction):
     __slots__ = []
+
     def __init__(self, *args, **kwargs):
         if not program.curr_tape.singular:
             raise CompilerError('Direct memory writing prevented in threads')
         super(DirectMemoryWriteInstruction, self).__init__(*args, **kwargs)
 
 ###
-### I/O instructions
+# I/O instructions
 ###
+
 
 class DoNotEliminateInstruction(Instruction):
     """ What do you think? """
     __slots__ = []
+
 
 class IOInstruction(DoNotEliminateInstruction):
     """ Instruction that uses stdin/stdout during runtime. These are linked
     to prevent instruction reordering during optimization. """
     __slots__ = []
 
-    @classmethod
+    @ classmethod
     def str_to_int(cls, s):
         """ Convert a 4 character string to an integer. """
         try:
@@ -1132,17 +1208,21 @@ class IOInstruction(DoNotEliminateInstruction):
             n += c
         return n
 
+
 class AsymmetricCommunicationInstruction(DoNotEliminateInstruction):
     """ Instructions involving sending from or to only one party. """
     __slots__ = []
+
 
 class RawInputInstruction(AsymmetricCommunicationInstruction):
     """ Raw input instructions. """
     __slots__ = []
 
+
 class PublicFileIOInstruction(DoNotEliminateInstruction):
     """ Instruction to reads/writes public information from/to files. """
     __slots__ = []
+
 
 class TextInputInstruction(VarArgsInstruction, DoNotEliminateInstruction):
     """ Input from text file or stdin """
@@ -1150,12 +1230,13 @@ class TextInputInstruction(VarArgsInstruction, DoNotEliminateInstruction):
 
     def add_usage(self, req_node):
         for player in self.get_players():
-            req_node.increment((self.field_type, 'input', player), \
+            req_node.increment((self.field_type, 'input', player),
                                self.get_size())
 
 ###
-### Data access instructions
+# Data access instructions
 ###
+
 
 class DataInstruction(Instruction):
     __slots__ = []
@@ -1169,30 +1250,34 @@ class DataInstruction(Instruction):
         return 1
 
 ###
-### Integer operations
-### 
+# Integer operations
+###
+
 
 class IntegerInstruction(Instruction):
     """ Base class for integer operations. """
     __slots__ = []
     arg_format = ['ciw', 'ci', 'ci']
 
+
 class StackInstruction(DoNotEliminateInstruction):
     """ Base class for thread-local stack instructions. """
     __slots__ = []
 
 ###
-### Clear comparison instructions
+# Clear comparison instructions
 ###
+
 
 class UnaryComparisonInstruction(Instruction):
     """ Base class for unary comparisons. """
     __slots__ = []
     arg_format = ['ciw', 'ci']
 
-### 
-### Clear shift instructions
-### 
+###
+# Clear shift instructions
+###
+
 
 class ClearShiftInstruction(ClearImmediate):
     __slots__ = []
@@ -1203,8 +1288,9 @@ class ClearShiftInstruction(ClearImmediate):
             raise CompilerError('negative shift')
 
 ###
-### Jumps etc
+# Jumps etc
 ###
+
 
 class JumpInstruction(Instruction):
     __slots__ = ['jump_arg']
@@ -1221,7 +1307,7 @@ class JumpInstruction(Instruction):
 class CISC(Instruction):
     """
     Base class for a CISC instruction.
-    
+
     Children must implement expand(self) to process the instruction.
     """
     __slots__ = []
@@ -1231,7 +1317,7 @@ class CISC(Instruction):
         self.args = args
         self.check_args()
         self.expand()
-    
+
     def expand(self):
         """ Expand this into a sequence of RISC instructions. """
         raise NotImplementedError('expand method must be implemented')

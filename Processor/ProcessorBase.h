@@ -29,7 +29,7 @@ protected:
   int arg;
 
   string get_parameterized_filename(int my_num, int thread_num,
-      const string& prefix);
+                                    const string &prefix);
 
 public:
   ExecutionStats stats;
@@ -39,28 +39,32 @@ public:
   ProcessorBase();
 
   void pushi(long x) { stacki.push(x); }
-  void popi(long& x) { x = stacki.top(); stacki.pop(); }
+  void popi(long &x)
+  {
+    x = stacki.top();
+    stacki.pop();
+  }
 
   int get_arg() const
-    {
-      return arg;
-    }
+  {
+    return arg;
+  }
 
   void set_arg(int new_arg)
-    {
-      arg=new_arg;
-    }
+  {
+    arg = new_arg;
+  }
 
-  void open_input_file(const string& name);
-  void open_input_file(int my_num, int thread_num, const string& prefix="");
+  void open_input_file(const string &name);
+  void open_input_file(int my_num, int thread_num, const string &prefix = "");
 
-  template<class T>
-  T get_input(bool interactive, const int* params);
-  template<class T>
-  T get_input(istream& is, const string& input_filename, const int* params);
+  template <class T>
+  T get_input(bool interactive, const int *params);
+  template <class T>
+  T get_input(istream &is, const string &input_filename, const int *params);
 
-  void setup_redirection(int my_nu, int thread_num, OnlineOptions& opts,
-      SwitchableOutput& out);
+  void setup_redirection(int my_nu, int thread_num, OnlineOptions &opts,
+                         SwitchableOutput &out);
 };
 
 #endif /* PROCESSOR_PROCESSORBASE_H_ */

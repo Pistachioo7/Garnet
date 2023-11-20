@@ -1,0 +1,1 @@
+/usr/bin/clang-6.0  -O3 -Wall -Wextra -no-pie -fno-PIC -g CMakeFiles/ot_receiver_asm.dir/__/common/ot_receiver_test.c.o -o ot_receiver_asm  libSimplestOT_ASM.a 

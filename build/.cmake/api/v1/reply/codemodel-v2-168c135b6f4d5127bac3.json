@@ -1,0 +1,134 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "x86_64",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "x86_64",
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						5
+					]
+				},
+				{
+					"build" : "ref10",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ref10",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "SimplestOT",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "SimplestOT::@eb9423aebcd6cd4c3e93",
+					"jsonFile" : "target-SimplestOT-Debug-8bc4d205e0cfb5cef17c.json",
+					"name" : "SimplestOT",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SimplestOT_ASM::@4a9a0e3d00ed9273ff1d",
+					"jsonFile" : "target-SimplestOT_ASM-Debug-a6dcd67ceaab318a2f44.json",
+					"name" : "SimplestOT_ASM",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ot_receiver::@eb9423aebcd6cd4c3e93",
+					"jsonFile" : "target-ot_receiver-Debug-dedfb05a073220297ebd.json",
+					"name" : "ot_receiver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ot_receiver_asm::@4a9a0e3d00ed9273ff1d",
+					"jsonFile" : "target-ot_receiver_asm-Debug-f8aba02b01ce699aa3d8.json",
+					"name" : "ot_receiver_asm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ot_sender::@eb9423aebcd6cd4c3e93",
+					"jsonFile" : "target-ot_sender-Debug-dcc95f0dd1cc91b51596.json",
+					"name" : "ot_sender",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ot_sender_asm::@4a9a0e3d00ed9273ff1d",
+					"jsonFile" : "target-ot_sender_asm-Debug-3d8217352ef0c20082c9.json",
+					"name" : "ot_sender_asm",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/chy/Garnet/build",
+		"source" : "/home/chy/Garnet/deps/SimplestOT_C"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

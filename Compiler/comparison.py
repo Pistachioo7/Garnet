@@ -19,9 +19,10 @@ comparison-specific preprocessing is also available.
 """
 
 
-
-
 # Use constant rounds protocols instead of log rounds
+from .instructions import *
+from . import util
+from . import instructions_base
 const_rounds = False
 # Set use_inv to use preprocessed inverse tuples for more efficient
 # online phase comparisons.
@@ -31,8 +32,6 @@ use_inv = True
 # (r[i], r[i]^-1, r[i] * r[i-1]^-1)
 do_precomp = True
 
-from . import instructions_base
-from . import util
 
 def set_variant(options):
     """ Set flags based on the command-line option provided """
@@ -54,6 +53,7 @@ def set_variant(options):
     elif variant is not None:
         raise CompilerError('Unknown comparison variant: %s' % variant)
 
+
 def ld2i(c, n):
     """ Load immediate 2^n into clear GF(p) register c """
     t1 = program.curr_block.new_reg('c')
@@ -64,6 +64,7 @@ def ld2i(c, n):
         t1 = t2
     movc(c, t1)
 
+
 def require_ring_size(k, op):
     if int(program.options.ring) < k:
         msg = 'ring size too small for %s, compile ' \
@@ -73,6 +74,7 @@ def require_ring_size(k, op):
         raise CompilerError(msg)
     program.curr_tape.require_bit_length(k)
 
+
 @instructions_base.cisc
 def LTZ(s, a, k, kappa):
     """
@@ -81,6 +83,7 @@ def LTZ(s, a, k, kappa):
     k: bit length of a
     """
     movs(s, program.non_linear.ltz(a, k, kappa))
+
 
 def LtzRing(a, k):
     from .types import sint, _bitint
@@ -103,11 +106,13 @@ def LtzRing(a, k):
         u = CarryOutRaw(a[::-1], b[::-1])
         return sint.conv(r_bin[m].bit_xor(c_prime >> m).bit_xor(u))
 
+
 def LessThanZero(a, k, kappa):
     from . import types
     res = types.sint()
     LTZ(res, a, k, kappa)
     return res
+
 
 @instructions_base.cisc
 def Trunc(d, a, k, m, kappa, signed):
@@ -123,6 +128,7 @@ def Trunc(d, a, k, m, kappa, signed):
         return
     else:
         movs(d, program.non_linear.trunc(a, k, m, kappa, signed))
+
 
 def TruncRing(d, a, k, m, signed):
     program.curr_tape.require_bit_length(1)
@@ -142,7 +148,7 @@ def TruncRing(d, a, k, m, signed):
             if m == 1:
                 low = x[1][1]
                 high = sint.conv(CarryOutLE(x[1][:-1], x[0][:-1])) + \
-                       sint.conv(x[0][-1])
+                    sint.conv(x[0][-1])
             else:
                 mid_carry = CarryOutRawLE(x[1][:m], x[0][:m])
                 low = sint.conv(mid_carry) + sint.conv(x[0][m])
@@ -164,6 +170,7 @@ def TruncRing(d, a, k, m, signed):
         movs(d, res)
     return res
 
+
 def TruncZeros(a, k, m, signed):
     if program.options.ring:
         return TruncLeakyInRing(a, k, m, signed)
@@ -172,6 +179,7 @@ def TruncZeros(a, k, m, signed):
         tmp = types.cint()
         inv2m(tmp, m)
         return a * tmp
+
 
 def TruncLeakyInRing(a, k, m, signed):
     """
@@ -201,6 +209,7 @@ def TruncLeakyInRing(a, k, m, signed):
         res -= (1 << (n_bits - 1))
     return res
 
+
 def TruncRoundNearest(a, k, m, kappa, signed=False):
     """
     Returns a / 2^m, rounded to the nearest integer.
@@ -213,6 +222,7 @@ def TruncRoundNearest(a, k, m, kappa, signed=False):
     nl = program.non_linear
     nl.check_security(kappa)
     return program.non_linear.trunc_round_nearest(a, k, m, signed)
+
 
 @instructions_base.cisc
 def Mod2m(a_prime, a, k, m, kappa, signed):
@@ -227,6 +237,7 @@ def Mod2m(a_prime, a, k, m, kappa, signed):
     nl.check_security(kappa)
     movs(a_prime, program.non_linear.mod2m(a, k, m, signed))
 
+
 def Mod2mRing(a_prime, a, k, m, signed):
     assert(int(program.options.ring) >= k)
     from Compiler.types import sint, intbitint, cint
@@ -240,6 +251,7 @@ def Mod2mRing(a_prime, a, k, m, signed):
     if a_prime is not None:
         movs(a_prime, res)
     return res
+
 
 def Mod2mField(a_prime, a, k, m, kappa, signed):
     from .types import sint
@@ -274,6 +286,7 @@ def Mod2mField(a_prime, a, k, m, kappa, signed):
     adds(a_prime, t[5], t[4])
     return r_dprime, r_prime, c, c_prime, u, t, c2k1
 
+
 def MaskingBitsInRing(m, strict=False):
     program.curr_tape.require_bit_length(1)
     from Compiler.types import sint
@@ -285,6 +298,7 @@ def MaskingBitsInRing(m, strict=False):
         r = [sint.get_random_bit() for i in range(m)]
         r_bin = r
     return sint.bit_compose(r), r_bin
+
 
 def PRandM(r_dprime, r_prime, b, k, m, kappa, use_dabit=True):
     """
@@ -309,11 +323,12 @@ def PRandM(r_dprime, r_prime, b, k, m, kappa, use_dabit=True):
         movs(r_prime, r)
         return
     bit(b[-1])
-    for i in range(1,m):
+    for i in range(1, m):
         adds(t[i][0], t[i-1][1], t[i-1][1])
         bit(b[-i-1])
         adds(t[i][1], t[i][0], b[-i-1])
     movs(r_prime, t[m-1][1])
+
 
 def PRandInt(r, k):
     """
@@ -322,10 +337,11 @@ def PRandInt(r, k):
     t = [[program.curr_block.new_reg('s') for i in range(k)] for j in range(3)]
     t[2][k-1] = r
     bit(t[2][0])
-    for i in range(1,k):
+    for i in range(1, k):
         adds(t[0][i], t[2][i-1], t[2][i-1])
         bit(t[1][i])
         adds(t[2][i], t[0][i], t[1][i])
+
 
 def BitLTC1(u, a, b, kappa):
     """
@@ -352,8 +368,10 @@ def BitLTC1(u, a, b, kappa):
     else:
         d = [program.curr_block.new_reg('s') for i in range(k)]
         s = [program.curr_block.new_reg('s') for i in range(k)]
-        t = [[program.curr_block.new_reg('s') for i in range(k)] for j in range(5)]
-        c = [[program.curr_block.new_reg('c') for i in range(k)] for j in range(4)]
+        t = [[program.curr_block.new_reg('s')
+              for i in range(k)] for j in range(5)]
+        c = [[program.curr_block.new_reg('c')
+              for i in range(k)] for j in range(4)]
     if instructions_base.get_global_vector_size() == 1:
         vmulci(k, c[2], a_bits, 2)
         vmulm(k, t[0], b_vec, c[2])
@@ -378,7 +396,8 @@ def BitLTC1(u, a, b, kappa):
             if do_precomp:
                 PreMulC_with_inverses(p, pre_input)
             else:
-                raise NotImplementedError('Vectors not compatible with -c sinv')
+                raise NotImplementedError(
+                    'Vectors not compatible with -c sinv')
     else:
         PreMulC_without_inverses(p, pre_input)
     p.reverse()
@@ -389,12 +408,13 @@ def BitLTC1(u, a, b, kappa):
     mulm(t[4][0], s[0], c[3][0])
     from .types import sint
     t[3] = [sint() for i in range(k)]
-    for i in range(1,k):
+    for i in range(1, k):
         subcfi(c[3][i], a_bits[i], 1)
         mulm(t[3][i], s[i], c[3][i])
         adds(t[4][i], t[4][i-1], t[3][i])
     Mod2(u, t[4][k-1], k, kappa, False)
     return p, a_bits, d, s, t, c, b, pre_input
+
 
 def carry(b, a, compute_p=True):
     """ Carry propogation:
@@ -412,6 +432,8 @@ def carry(b, a, compute_p=True):
 
 # from WP9 report
 # length of a is even
+
+
 def CarryOutAux(a, kappa):
     k = len(a)
     if k > 1 and k % 2 == 1:
@@ -427,6 +449,8 @@ def CarryOutAux(a, kappa):
         return a[0][1]
 
 # carry out with carry-in bit c
+
+
 def CarryOut(res, a, b, c=0, kappa=None):
     """
     res = last carry bit in addition of a and b
@@ -437,6 +461,7 @@ def CarryOut(res, a, b, c=0, kappa=None):
     """
     from .types import sint
     movs(res, sint.conv(CarryOutRaw(a, b, c)))
+
 
 def CarryOutRaw(a, b, c=0):
     assert len(a) == len(b)
@@ -456,9 +481,11 @@ def CarryOutRaw(a, b, c=0):
     d[-1][1] = s[1]
     return CarryOutAux(d[::-1], None)
 
+
 def CarryOutRawLE(a, b, c=0):
     """ Little-endian version """
     return CarryOutRaw(a[::-1], b[::-1], c)
+
 
 def CarryOutLE(a, b, c=0):
     """ Little-endian version """
@@ -466,6 +493,7 @@ def CarryOutLE(a, b, c=0):
     res = types.sint()
     CarryOut(res, a[::-1], b[::-1], c)
     return res
+
 
 def BitLTL(res, a, b, kappa):
     """
@@ -479,9 +507,11 @@ def BitLTL(res, a, b, kappa):
     from .types import sint
     movs(res, sint.conv(BitLTL_raw(a_bits, b)))
 
+
 def BitLTL_raw(a_bits, b):
     s = [x.bit_not() for x in b]
     return CarryOutRaw(a_bits[::-1], s[::-1], b[0].long_one()).bit_not()
+
 
 def PreMulC_with_inverses_and_vectors(p, a):
     """
@@ -503,7 +533,7 @@ def PreMulC_with_inverses_and_vectors(p, a):
         vinverse(k, r, z)
     else:
         vprep(k, 'PreMulC', r, z, w_tmp)
-    for i in range(1,k):
+    for i in range(1, k):
         if do_precomp:
             muls(w[i], r[i], z[i-1])
         else:
@@ -514,6 +544,7 @@ def PreMulC_with_inverses_and_vectors(p, a):
     vmuls(k, t[0], w, a_vec)
     vasm_open(k, True, m, t[0])
     PreMulC_end(p, a, c, m, z)
+
 
 def PreMulC_with_inverses(p, a):
     """
@@ -535,13 +566,14 @@ def PreMulC_with_inverses(p, a):
         else:
             prep('PreMulC', r[0][i], z[i], w[1][i])
     if do_precomp:
-        for i in range(1,k):
+        for i in range(1, k):
             muls(w[1][i], r[0][i], z[i-1])
     w[1][0] = r[0][0]
     for i in range(k):
         muls(t[0][i], w[1][i], a[i])
         asm_open(True, m[i], t[0][i])
     PreMulC_end(p, a, c, m, z)
+
 
 def PreMulC_without_inverses(p, a):
     """
@@ -564,7 +596,7 @@ def PreMulC_without_inverses(p, a):
         triple(s[i], r[i], t[0][i])
         #adds(tt[0][i], t[0][i], a[i])
         #subs(tt[1][i], tt[0][i], a[i])
-        #startopen(tt[1][i])
+        # startopen(tt[1][i])
         asm_open(True, u[i], t[0][i])
     for i in range(k-1):
         muls(v[i], r[i+1], s[i])
@@ -575,14 +607,15 @@ def PreMulC_without_inverses(p, a):
         divc(u_inv[i], one, u[i])
         # avoid division by zero, just for benchmarking
         #divc(u_inv[i], u[i], one)
-    for i in range(1,k):
+    for i in range(1, k):
         mulm(w[i], v[i-1], u_inv[i-1])
-    for i in range(1,k):
+    for i in range(1, k):
         mulm(z[i], s[i], u_inv[i])
     for i in range(k):
         muls(t[1][i], w[i], a[i])
         asm_open(True, m[i], t[1][i])
     PreMulC_end(p, a, c, m, z)
+
 
 def PreMulC_end(p, a, c, m, z):
     """
@@ -590,7 +623,7 @@ def PreMulC_end(p, a, c, m, z):
     """
     k = len(a)
     c[0] = m[0]
-    for j in range(1,k):
+    for j in range(1, k):
         mulc(c[j], c[j-1], m[j])
         if isinstance(p, list):
             mulm(p[j], z[j], c[j])
@@ -598,6 +631,7 @@ def PreMulC_end(p, a, c, m, z):
         p[0] = a[0]
     else:
         mulm(p, z[-1], c[-1])
+
 
 def PreMulC(a):
     p = [type(a[0])() for i in range(len(a))]
@@ -608,6 +642,7 @@ def PreMulC(a):
         PreMulC_without_inverses(p, a)
     instructions_base.reset_global_instruction_type()
     return p
+
 
 def KMulC(a):
     """
@@ -620,6 +655,7 @@ def KMulC(a):
     else:
         PreMulC_without_inverses(p, a)
     return p
+
 
 def Mod2(a_0, a, k, kappa, signed):
     """
@@ -658,4 +694,3 @@ def Mod2(a_0, a, k, kappa, signed):
 
 
 # hack for circular dependency
-from .instructions import *

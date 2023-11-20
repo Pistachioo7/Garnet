@@ -227,7 +227,8 @@ class Program(object):
         else:
             self.name = self.name
         if len(args) > 1:
-            self.name += "-" + "-".join(re.sub("/", "_", arg) for arg in args[1:])
+            self.name += "-" + "-".join(re.sub("/", "_", arg)
+                                        for arg in args[1:])
 
     def set_ring_size(self, ring_size):
         from .non_linear import Ring
@@ -320,7 +321,8 @@ class Program(object):
         )
         self.curr_tape.start_new_basicblock(name="post-run_tape")
         for arg in args:
-            self.curr_tape.req_node.children.append(self.tapes[arg[0]].req_tree)
+            self.curr_tape.req_node.children.append(
+                self.tapes[arg[0]].req_tree)
         return thread_numbers
 
     def join_tape(self, thread_number):
@@ -344,7 +346,6 @@ class Program(object):
             self.req_num += tape.req_num
 
     def write_bytes(self):
-
         """Write all non-empty threads and schedule to files."""
 
         nonempty_tapes = [t for t in self.tapes]
@@ -418,7 +419,8 @@ class Program(object):
                 single_size = size
                 size *= self.n_running_threads
             else:
-                raise CompilerError("cannot allocate memory " "outside main thread")
+                raise CompilerError(
+                    "cannot allocate memory " "outside main thread")
         blocks = self.free_mem_blocks[mem_type]
         addr = blocks.pop(size)
         if addr is not None:
@@ -427,9 +429,11 @@ class Program(object):
             addr = self.allocated_mem[mem_type]
             self.allocated_mem[mem_type] += size
             if len(str(addr)) != len(str(addr + size)) and self.verbose:
-                print("Memory of type '%s' now of size %d" % (mem_type, addr + size))
+                print("Memory of type '%s' now of size %d" %
+                      (mem_type, addr + size))
             if addr + size >= 2**64:
-                raise CompilerError("allocation exceeded for type '%s'" % mem_type)
+                raise CompilerError(
+                    "allocation exceeded for type '%s'" % mem_type)
         self.allocated_mem_blocks[addr, mem_type] = size
         if single_size:
             from .library import get_thread_number, runtime_error_if
@@ -463,15 +467,13 @@ class Program(object):
             for tape in self.tapes:
                 tape.write_str(self.options.asmoutfile + "-" + tape.name)
 
-
-
     def finalize_memory(self):
         self.curr_tape.start_new_basicblock(None, "memory-usage")
         # reset register counter to 0
         if not self.options.noreallocate:
             self.curr_tape.init_registers()
         for mem_type, size in sorted(self.allocated_mem.items()):
-            if size and (not self.options.garbled or \
+            if size and (not self.options.garbled or
                          mem_type not in ('s', 'sg', 'c', 'cg')):
                 # print "Memory of type '%s' of size %d" % (mem_type, size)
                 if mem_type in self.types:
@@ -557,7 +559,6 @@ class Program(object):
             return self._invperm
         else:
             self._invperm = change
-
 
     def use_edabit_for(self, *args):
         return True
@@ -742,11 +743,13 @@ class Tape:
                 return req_node.num != {}
 
             if retain_usage:
-                self.usage_instructions = list(filter(relevant, self.instructions))
+                self.usage_instructions = list(
+                    filter(relevant, self.instructions))
             else:
                 self.usage_instructions = []
             if len(self.usage_instructions) > 1000:
-                print("Retaining %d instructions" % len(self.usage_instructions))
+                print("Retaining %d instructions" %
+                      len(self.usage_instructions))
             del self.instructions
             self.purged = True
 
@@ -762,17 +765,24 @@ class Tape:
             req_node.num += self.rounds
 
         def expand_cisc(self):
+            print("expand cisc")
             new_instructions = []
             if self.parent.program.options.keep_cisc is not None:
-                skip = ["LTZ", "Trunc"]
+                # print(self.parent.program.options.keep_cisc)
+                skip = ["LTZ", "Trunc", "PSI_cisc"]
                 skip += self.parent.program.options.keep_cisc.split(",")
             else:
                 skip = []
+            print(skip)
             for inst in self.instructions:
                 new_inst, n_rounds = inst.expand_merged(skip)
+                # if inst != new_inst:
+                # print("inst", inst)
+                # print(new_inst)
                 new_instructions.extend(new_inst)
                 self.n_rounds += n_rounds
             self.instructions = new_instructions
+            print("Instructions:", self.instructions)
 
         def __str__(self):
             return self.name
@@ -843,11 +853,13 @@ class Tape:
                 except AttributeError:
                     pass
             print()
-            raise CompilerError("Unclosed if/else blocks, see tracebacks above")
+            raise CompilerError(
+                "Unclosed if/else blocks, see tracebacks above")
 
         if self.program.verbose:
             print(
-                "Processing tape", self.name, "with %d blocks" % len(self.basicblocks)
+                "Processing tape", self.name, "with %d blocks" % len(
+                    self.basicblocks)
             )
 
         for block in self.basicblocks:
@@ -868,7 +880,8 @@ class Tape:
                         )
                     )
                 # the next call is necessary for allocation later even without merging
-                merger = al.Merger(block, options, tuple(self.program.to_merge))
+                merger = al.Merger(
+                    block, options, tuple(self.program.to_merge))
                 if options.dead_code_elimination:
                     if len(block.instructions) > 1000000:
                         print("Eliminate dead code...")
@@ -910,6 +923,7 @@ class Tape:
             print("Not merging instructions in tape %s" % self.name)
 
         if options.cisc:
+            # print("begin cisc")
             self.expand_cisc()
 
         # add jumps
@@ -926,7 +940,8 @@ class Tape:
                 block.adjust_return()
 
         # now remove any empty blocks (must be done after setting jumps)
-        self.basicblocks = [x for x in self.basicblocks if len(x.instructions) != 0]
+        self.basicblocks = [
+            x for x in self.basicblocks if len(x.instructions) != 0]
 
         # allocate registers
         reg_counts = self.count_regs()
@@ -964,7 +979,8 @@ class Tape:
             for i, block in enumerate(reversed(self.basicblocks)):
                 if len(block.instructions) > 1000000:
                     print(
-                        "Allocating %s, %d/%d" % (block.name, i, len(self.basicblocks))
+                        "Allocating %s, %d/%d" % (block.name,
+                                                  i, len(self.basicblocks))
                     )
                 if block.exit_condition is not None:
                     jump = block.exit_condition.get_relative_jump()
@@ -991,7 +1007,8 @@ class Tape:
             if req[1] in data_types:
                 self.basicblocks[-1].instructions.append(
                     Compiler.instructions.use(
-                        field_types[req[0]], data_types[req[1]], num, add_to_prog=False
+                        field_types[req[0]], data_types[req[1]
+                                                        ], num, add_to_prog=False
                     )
                 )
             elif req[1] == "input":
@@ -1002,11 +1019,13 @@ class Tape:
                 )
             elif req[0] == "modp":
                 self.basicblocks[-1].instructions.append(
-                    Compiler.instructions.use_prep(req[1], num, add_to_prog=False)
+                    Compiler.instructions.use_prep(
+                        req[1], num, add_to_prog=False)
                 )
             elif req[0] == "gf2n":
                 self.basicblocks[-1].instructions.append(
-                    Compiler.instructions.guse_prep(req[1], num, add_to_prog=False)
+                    Compiler.instructions.guse_prep(
+                        req[1], num, add_to_prog=False)
                 )
             elif req[0] == "edabit":
                 self.basicblocks[-1].instructions.append(
@@ -1022,7 +1041,8 @@ class Tape:
                 )
             elif req[0] == "matmul":
                 self.basicblocks[-1].instructions.append(
-                    Compiler.instructions.use_matmul(*req[1], num, add_to_prog=False)
+                    Compiler.instructions.use_matmul(
+                        *req[1], num, add_to_prog=False)
                 )
 
         if not self.is_empty():
@@ -1036,8 +1056,10 @@ class Tape:
                         Compiler.instructions.reqbl(bl, add_to_prog=False)
                     )
             if self.program.verbose:
-                print("Tape requires prime bit length", self.req_bit_length["p"])
-                print("Tape requires galois bit length", self.req_bit_length["2"])
+                print("Tape requires prime bit length",
+                      self.req_bit_length["p"])
+                print("Tape requires galois bit length",
+                      self.req_bit_length["2"])
 
     @unpurged
     def expand_cisc(self):
@@ -1095,7 +1117,7 @@ class Tape:
         print("Writing to", filename)
         f = open(filename, "wb")
 
-        temp = self._get_instructions()
+        # temp = self._get_instructions()
         # s = set()
         # for k in temp:
         #     print(hex(k.code))
@@ -1107,7 +1129,6 @@ class Tape:
             if i is not None:
                 f.write(i.get_bytes())
         f.close()
-
 
     def new_reg(self, reg_type, size=None):
         return self.Register(reg_type, self, size=size)
@@ -1176,7 +1197,8 @@ class Tape:
                     num = float('inf')
                 n = "%12.0f" % num
                 if req[1] == "input":
-                    res += ["%s %s inputs from player %d" % (n, domain, req[2])]
+                    res += ["%s %s inputs from player %d" %
+                            (n, domain, req[2])]
                 elif domain.endswith("edabit"):
                     if domain == "sedabit":
                         eda = "strict edabits"
@@ -1191,7 +1213,8 @@ class Tape:
                 elif req[0] != "all":
                     res += ["%s %s %ss" % (n, domain, req[1])]
             if self["all", "round"]:
-                res += ["% 12.0f virtual machine rounds" % self["all", "round"]]
+                res += ["% 12.0f virtual machine rounds" %
+                        self["all", "round"]]
             return res
 
         def __str__(self):
@@ -1213,7 +1236,8 @@ class Tape:
             for block in self.blocks:
                 block.add_usage(self)
             res = reduce(
-                lambda x, y: x + y.aggregate(self.name), self.children, self.num
+                lambda x, y: x +
+                y.aggregate(self.name), self.children, self.num
             )
             return res
 
@@ -1271,7 +1295,8 @@ class Tape:
                         "required bit length %d too much for %d"
                         % (bit_length, self.program.prime)
                     )
-            self.req_bit_length[t] = max(bit_length + 1, self.req_bit_length[t])
+            self.req_bit_length[t] = max(
+                bit_length + 1, self.req_bit_length[t])
         else:
             self.req_bit_length[t] = max(bit_length, self.req_bit_length)
 
@@ -1361,7 +1386,8 @@ class Tape:
 
         def set_vectorbase(self, vectorbase):
             if self.vectorbase is not self:
-                raise CompilerError("Cannot assign one register" "to several vectors")
+                raise CompilerError(
+                    "Cannot assign one register" "to several vectors")
             self.relative_i = self.i - vectorbase.i
             self.vectorbase = vectorbase
 
@@ -1378,7 +1404,7 @@ class Tape:
             res = self._new_by_number(self.i + base, size=size)
             res.set_vectorbase(self)
             self.create_vector_elements()
-            res.vector = self.vector[base : base + size]
+            res.vector = self.vector[base: base + size]
             return res
 
         def create_vector_elements(self):

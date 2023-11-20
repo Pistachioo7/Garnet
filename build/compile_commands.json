@@ -1,0 +1,422 @@
+[
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/cpucycles.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/cpucycles.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/cpucycles.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_add.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_add.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_add.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_getparity.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_getparity.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_getparity.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_invert.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_invert.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_invert.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_iseq_vartime.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_iseq_vartime.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_iseq_vartime.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_neg.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_neg.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_neg.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_pack.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_pack.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_pack.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_pow2523.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_pow2523.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_pow2523.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_setint.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_setint.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_setint.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_sub.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_sub.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_sub.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/fe25519_unpack.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_unpack.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/fe25519_unpack.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_add.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_add.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_add.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_double.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_double.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_double.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_pack.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_pack.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_pack.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_scalarmult.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_scalarmult.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_scalarmult.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_scalarmult_base.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_scalarmult_base.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_scalarmult_base.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_setneutral.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_setneutral.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_setneutral.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge25519_unpack.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_unpack.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge25519_unpack.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge4x.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge4x.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge4x.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge4x_pack.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge4x_pack.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge4x_pack.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ge4x_unpack_vartime.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ge4x_unpack_vartime.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ge4x_unpack_vartime.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/gfe4x.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/gfe4x_getparity.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_getparity.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_getparity.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/gfe4x_iseq_vartime.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_iseq_vartime.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_iseq_vartime.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/gfe4x_nsquare.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_nsquare.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_nsquare.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/gfe4x_pow2523.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_pow2523.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/gfe4x_pow2523.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/Keccak-simple.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/Keccak-simple.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/Keccak-simple.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/network.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/network.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/network.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ot_receiver.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ot_receiver.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ot_receiver.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/ot_sender.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/ot_sender.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/ot_sender.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/__/common/randombytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/common/randombytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/common/randombytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/sc25519_from32bytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/sc25519_from32bytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/sc25519_from32bytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/sc25519_random.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/sc25519_random.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/sc25519_random.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/SimplestOT_ASM.dir/sc25519_window4.c.o -c /home/chy/Garnet/deps/SimplestOT_C/x86_64/sc25519_window4.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/x86_64/sc25519_window4.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/ot_sender_asm.dir/__/common/ot_sender_test.c.o -c /home/chy/Garnet/deps/SimplestOT_C/common/ot_sender_test.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/common/ot_sender_test.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/x86_64",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/x86_64/.  -O3 -Wall -Wextra -no-pie -fno-PIC -g -o CMakeFiles/ot_receiver_asm.dir/__/common/ot_receiver_test.c.o -c /home/chy/Garnet/deps/SimplestOT_C/common/ot_receiver_test.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/common/ot_receiver_test.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/cpucycles.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/cpucycles.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/cpucycles.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_0.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_0.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_0.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_1.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_1.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_1.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_add.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_add.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_add.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_cmov.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_cmov.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_cmov.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_copy.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_copy.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_copy.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_frombytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_frombytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_frombytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_invert.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_invert.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_invert.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_isnegative.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_isnegative.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_isnegative.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_isnonzero.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_isnonzero.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_isnonzero.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_mul.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_mul.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_mul.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_neg.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_neg.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_neg.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_pow22523.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_pow22523.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_pow22523.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_sq.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_sq.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_sq.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_sq2.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_sq2.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_sq2.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_sub.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_sub.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_sub.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/fe_tobytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/fe_tobytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/fe_tobytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_add.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_add.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_add.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_double_scalarmult.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_double_scalarmult.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_double_scalarmult.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_frombytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_frombytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_frombytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_madd.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_madd.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_madd.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_msub.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_msub.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_msub.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p1p1_to_p2.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p1p1_to_p2.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p1p1_to_p2.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p1p1_to_p3.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p1p1_to_p3.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p1p1_to_p3.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p2_0.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p2_0.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p2_0.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p2_dbl.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p2_dbl.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p2_dbl.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p3_0.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_0.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_0.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p3_dbl.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_dbl.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_dbl.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p3_to_cached.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_to_cached.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_to_cached.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p3_to_p2.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_to_p2.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_to_p2.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_p3_tobytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_tobytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_p3_tobytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_precomp_0.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_precomp_0.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_precomp_0.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_scalarmult_base.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_scalarmult_base.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_scalarmult_base.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_sub.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_sub.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_sub.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ge_tobytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ge_tobytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ge_tobytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/Keccak-simple.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/Keccak-simple.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/Keccak-simple.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/network.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/network.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/network.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ot_receiver.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ot_receiver.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ot_receiver.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/ot_sender.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/ot_sender.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/ot_sender.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/__/common/randombytes.c.o -c /home/chy/Garnet/deps/SimplestOT_C/common/randombytes.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/common/randombytes.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/sc_muladd.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/sc_muladd.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/sc_muladd.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/sc_random.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/sc_random.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/sc_random.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/sc_reduce.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/sc_reduce.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/sc_reduce.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/SimplestOT.dir/verify.c.o -c /home/chy/Garnet/deps/SimplestOT_C/ref10/verify.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/ref10/verify.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/ot_receiver.dir/__/common/ot_receiver_test.c.o -c /home/chy/Garnet/deps/SimplestOT_C/common/ot_receiver_test.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/common/ot_receiver_test.c"
+},
+{
+  "directory": "/home/chy/Garnet/build/ref10",
+  "command": "/usr/bin/clang-6.0  -I/home/chy/Garnet/deps/SimplestOT_C/ref10/.  -O3 -Wall -Wextra -DREF10 -std=gnu99 -g -o CMakeFiles/ot_sender.dir/__/common/ot_sender_test.c.o -c /home/chy/Garnet/deps/SimplestOT_C/common/ot_sender_test.c",
+  "file": "/home/chy/Garnet/deps/SimplestOT_C/common/ot_sender_test.c"
+}
+]

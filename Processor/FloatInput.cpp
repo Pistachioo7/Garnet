@@ -7,9 +7,9 @@
 
 #include <math.h>
 
-const char* FloatInput::NAME = "real number";
+const char *FloatInput::NAME = "real number";
 
-void FloatInput::read(std::istream& in, const int* params)
+void FloatInput::read(std::istream &in, const int *params)
 {
     double x;
     in >> x;

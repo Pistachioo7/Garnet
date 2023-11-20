@@ -14,8 +14,7 @@
 
 #include <iostream>
 
-inline
-void ProcessorBase::open_input_file(const string& name)
+inline void ProcessorBase::open_input_file(const string &name)
 {
 #ifdef DEBUG_FILES
     cerr << "opening " << name << endl;
@@ -24,8 +23,8 @@ void ProcessorBase::open_input_file(const string& name)
     input_filename = name;
 }
 
-template<class T>
-T ProcessorBase::get_input(bool interactive, const int* params)
+template <class T>
+T ProcessorBase::get_input(bool interactive, const int *params)
 {
     if (interactive)
         return get_input<T>(cin, "standard input", params);
@@ -33,8 +32,8 @@ T ProcessorBase::get_input(bool interactive, const int* params)
         return get_input<T>(input_file, input_filename, params);
 }
 
-template<class T>
-T ProcessorBase::get_input(istream& input_file, const string& input_filename, const int* params)
+template <class T>
+T ProcessorBase::get_input(istream &input_file, const string &input_filename, const int *params)
 {
     T res;
     if (input_file.peek() == EOF)

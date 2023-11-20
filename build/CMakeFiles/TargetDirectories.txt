@@ -1,0 +1,12 @@
+/home/chy/Garnet/build/CMakeFiles/rebuild_cache.dir
+/home/chy/Garnet/build/CMakeFiles/edit_cache.dir
+/home/chy/Garnet/build/x86_64/CMakeFiles/edit_cache.dir
+/home/chy/Garnet/build/x86_64/CMakeFiles/rebuild_cache.dir
+/home/chy/Garnet/build/x86_64/CMakeFiles/ot_sender_asm.dir
+/home/chy/Garnet/build/x86_64/CMakeFiles/ot_receiver_asm.dir
+/home/chy/Garnet/build/x86_64/CMakeFiles/SimplestOT_ASM.dir
+/home/chy/Garnet/build/ref10/CMakeFiles/rebuild_cache.dir
+/home/chy/Garnet/build/ref10/CMakeFiles/edit_cache.dir
+/home/chy/Garnet/build/ref10/CMakeFiles/ot_receiver.dir
+/home/chy/Garnet/build/ref10/CMakeFiles/ot_sender.dir
+/home/chy/Garnet/build/ref10/CMakeFiles/SimplestOT.dir

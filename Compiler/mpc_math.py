@@ -410,6 +410,49 @@ def exp_fx(x,iter=9):
     return a
 
 
+@instructions_base.cisc
+def PSI_cisc(res, n):
+    """ Calculate PSI     
+    """
+    pass
+    # test_psi()
+    # return 0
+
+
+def PSI(n,n1,n2):
+    size = n2
+    types.set_global_vector_size(size)
+    tmp = types.sint()
+    PSI_cisc(tmp, n)
+    res = types.cint()
+    types.reset_global_vector_size()#.Array(n)
+    return tmp
+    # num = cint()
+    
+    # puboutput(num)
+
+    # # print_ln('res')
+    # print_int(regint(num))   
+
+    # @for_range(num)
+    # def _(i):
+    #     v = cint()
+    #     puboutput(v)
+    #     res[i] = v
+    #     print_int(res[i].to_regint())
+    #     print_ln('\n')
+    #     # print_int(res[i].to_regint())
+
+    # @for_range(num)
+    # def _(i):
+    #     @if_(res[i] == cint(3))
+    #     def _():
+            # print_ln('hhh')
+    return res
+# @instructions_base.cisc
+# def test_psi():
+#     return 0s
+
 
 def mux_exp(x, y, block_size=8):
     assert util.is_constant_float(x)
